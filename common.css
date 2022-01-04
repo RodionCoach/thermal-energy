@@ -1,0 +1,217 @@
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url(./fonts/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url(./fonts/Roboto/Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Gaegu-Regular";
+  src: url(./fonts/Gaegu/Gaegu-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Gaegu-Bold";
+  src: url(./fonts/Gaegu/Gaegu-Bold.ttf);
+}
+
+.cycle-wrapper {
+  width: 640px;
+  height: 460px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: "Roboto-Regular", sans-serif;
+  box-sizing: border-box;
+}
+
+/* svg and path or polyline */
+
+svg {
+  position: absolute;
+}
+
+polyline {
+  cursor: pointer;
+  fill: rgba(120, 226, 196, 0);
+}
+
+circle {
+  cursor: pointer;
+  fill: rgba(120, 226, 196, 0);
+}
+
+rect {
+  fill: rgba(120, 226, 196, 0);
+}
+
+g:hover polyline,
+svg polyline:hover {
+  fill: rgba(120, 226, 196, 0.26);
+  stroke: white;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+/* Loader */
+
+#loader {
+  position: relative;
+  width: 640px;
+  height: 460px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.loader-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid black;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Info button */
+
+#infoButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+  z-index: 11;
+  background: white;
+  border: 5px solid #8c8681;
+  color: black;
+  border-radius: 20px;
+  padding: 0 15px;
+  height: 40px;
+  font-size: 16px;
+  transition: all ease 0.5s;
+}
+
+#infoButton:hover {
+  cursor: pointer;
+  background-color: #f7f7f7;
+  transform: scale(1.06);
+}
+
+#infoButton::before {
+  transition: all ease-in 0.2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes lds-ripple {
+  0% {
+    top: 26px;
+    left: 26px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    width: 52px;
+    height: 52px;
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes open {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  95% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes close {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  95% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
